@@ -1,4 +1,5 @@
-﻿using PassIn.Communication.Responses;
+﻿using Microsoft.EntityFrameworkCore;
+using PassIn.Communication.Responses;
 using PassIn.Exceptions;
 using PassIn.Infrastructure;
 
@@ -11,7 +12,10 @@ public class GetEventByIdUseCase
 
         //Exemplo de pesquisa mais complexa no db
         //dbContext.Events.FirstOrDefault(Event => Event.Id == id && Event.Title == "master");
-        var entity = dbContext.Events.Find(id);
+        var entity = dbContext
+            .Events
+            .Include(Event => Event.Attendees)
+            .FirstOrDefault(Event => Event.Id.Equals(id));
              
         if(entity is null) throw new NotFoundException("This event doesn't exist.");
 
@@ -21,7 +25,7 @@ public class GetEventByIdUseCase
             Title = entity.Title, 
             Details = entity.Details,
             MaximumAttendees = entity.Maximum_Attendees,
-            AttendeesAmount = -1,
+            AttendeesAmount = entity.Attendees.Count(),
         };
 
     }
