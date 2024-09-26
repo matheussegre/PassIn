@@ -8,14 +8,6 @@ A ferramenta permite que o organizador cadastre um evento e abra uma página pú
 
 Ela foi desenvolvida utilizando o **.NET 8**, com os principios de **Domain-Driven Design (DDD)**. A arquitetura em **REST**, utilizando métodos **HTTP** para a comunicação e a documentação das rotas pelo **Swagger**, proporcionando uma interface gráfica para os testes dos endpoints.
 
-Os pacotes **NuGet** utilizados foram:
-    <ul>
-        <li>**AutoMapper**: Responsável pelo mapeamento entre objetos de domínio e requisição/resposta, reduzindo repetição de código.</li>
-        <li>**FluentAssertions**: Utilizado nos testes de unidade, tornando as verificações mais legiveis, com uma escrita mais clara e compreensível.</li>
-        <li>**FluentValidation**: Utilizado na implementação de regras de validação de forma simples e intuitiva nas classes de requisições, mantendo o código limpo.</li>
-        <li>**EnitityFramework**: Atua como um ORM (Object-Relational Mapper) simplificando as interações com o banco e dados, permitindo o uso de objetos .NET para manipular dados diretamente, sem a necessidade de consultas SQL.</li>
-    </ul>
-
 ![hero-image]
 
 ### Build With
